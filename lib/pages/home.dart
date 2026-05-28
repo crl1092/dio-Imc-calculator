@@ -54,30 +54,29 @@ class _HomeState extends State<Home> {
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
+            spacing: 15,
             children: [
-              const SizedBox(height: 8),
+              const SizedBox(height: 1),
               const Text('Informe o seu peso:', style: TextStyle(fontSize: 20)),
-              const SizedBox(height: 8),
               TextField(
                 controller: pesoController,
                 decoration: const InputDecoration(
                   hintText: 'Peso',
                   prefixIcon: Icon(Icons.balance),
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                textInputAction: TextInputAction.next,
               ),
-              const SizedBox(height: 16),
               const Text('Informe sua altura:', style: TextStyle(fontSize: 20)),
-              const SizedBox(height: 8),
               TextField(
                 controller: alturaController,
                 decoration: const InputDecoration(
                   hintText: 'Altura',
                   prefixIcon: Icon(Icons.height),
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                textInputAction: TextInputAction.done,
               ),
-              const SizedBox(height: 24),
               TextButton(
                 onPressed: () {
                   final imcCalc = ImcCalc(peso: peso, altura: altura);
@@ -96,7 +95,6 @@ class _HomeState extends State<Home> {
                 ),
                 child: const Text('Calcular'),
               ),
-              const SizedBox(height: 18),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
