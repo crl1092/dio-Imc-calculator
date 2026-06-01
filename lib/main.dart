@@ -1,7 +1,11 @@
+import 'package:calculadora_imc/database/app_database.dart';
 import 'package:calculadora_imc/pages/home.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+late final AppDatabase database;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  database = await $FroomAppDatabase.databaseBuilder("app_database.db").build();
   runApp(const MainApp());
 }
 
